@@ -60,6 +60,7 @@ else
 {
     // Edit term page
     add_action( 'product_cat_edit_form_fields', 'wpc_action_product_cat_edit_form_fields', 10, 2 );
+
     function wpc_action_product_cat_edit_form_fields($wpc_term) {
 
       // put the term ID into a variable
@@ -71,7 +72,7 @@ else
       $wpc_settings = array( 'textarea_name' => 'term_meta[custom_term_meta]' );
       ?>
       <tr class="form-field">
-      <th scope="row" valign="top"><label for="term_meta[custom_term_meta]"><?php _e( 'Details', 'wpc-woocommerce-extended-category-archive-content' ); ?></label></th>
+      <th scope="row" valign="top"><label for="term_meta[custom_term_meta]"><?php _e( 'Extended Description', 'wpc-woocommerce-extended-category-archive-content' ); ?></label></th>
         <td>
           <?php wp_editor( $wpc_content, 'product_cat_details', $wpc_settings ); ?>
           <p class="description"><?php _e( 'Detailed category info to appear below the product list','wpc-woocommerce-extended-category-archive-content' ); ?></p>
@@ -80,10 +81,10 @@ else
     <?php
     }
 
-
-    // Save extra taxonomy fields callback function
+    // Save extra taxonomy fields callback function - Edit term page
     add_action( 'edited_product_cat', 'wpc_action_edited_product_cat', 10, 2 );
     add_action( 'create_product_cat', 'wpc_action_edited_product_cat', 10, 2 );
+
     function wpc_action_edited_product_cat( $wpc_term_id ) {
       if ( isset( $_POST['term_meta'] ) ) {
         $wpc_t_id = $wpc_term_id;
@@ -101,6 +102,7 @@ else
 
     // Display details on product category archive pages
     add_action( 'woocommerce_after_shop_loop', 'wpc_action_woocommerce_after_shop_loop' );
+
     function wpc_action_woocommerce_after_shop_loop() {
       $wpc_t_id = get_queried_object()->term_id;
       $wpc_term_meta = get_option( "taxonomy_$wpc_t_id" );
