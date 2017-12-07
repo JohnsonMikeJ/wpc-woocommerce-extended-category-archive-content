@@ -11,7 +11,7 @@
  * Plugin Name: WPComplete Woocommerce extended category archive content
  * Plugin URI:  https://github.com/JohnsonMikeJ/wpc-woocommerce-extended-category-archive-content/
  * Description: Adds content below the thumbnails on Woocommerce category archive pages.
- * Version:     0.1.0
+ * Version:     0.1.1
  * Author:      JohnsonMikej
  * Author URI:  https://profiles.wordpress.org/johnsonmikej
  * Text Domain: wpc-woocommerce-extended-category-archive-content
@@ -85,13 +85,13 @@ else
     add_action( 'edited_product_cat', 'wpc_action_edited_product_cat', 10, 2 );
     add_action( 'create_product_cat', 'wpc_action_edited_product_cat', 10, 2 );
     function wpc_action_edited_product_cat( $wpc_term_id ) {
-      if ( isset( $wpc__POST['term_meta'] ) ) {
+      if ( isset( $_POST['term_meta'] ) ) {
         $wpc_t_id = $wpc_term_id;
         $wpc_term_meta = get_option( "taxonomy_$wpc_t_id" );
-        $wpc_cat_keys = array_keys( $wpc__POST['term_meta'] );
+        $wpc_cat_keys = array_keys( $_POST['term_meta'] );
         foreach ( $wpc_cat_keys as $wpc_key ) {
-          if ( isset ( $wpc__POST['term_meta'][$wpc_key] ) ) {
-            $wpc_term_meta[$wpc_key] = wp_kses_post( stripslashes($wpc__POST['term_meta'][$wpc_key]) );
+          if ( isset ( $_POST['term_meta'][$wpc_key] ) ) {
+            $wpc_term_meta[$wpc_key] = wp_kses_post( stripslashes($_POST['term_meta'][$wpc_key]) );
           }
         }
         // Save the option array.
@@ -112,4 +112,3 @@ else
       }
     }
 }
-
