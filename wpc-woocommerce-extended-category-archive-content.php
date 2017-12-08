@@ -1,6 +1,6 @@
 <?php
 /*
- * WP Complete Woocommerce Extended Category Archive Content
+ * WPComplete Woocommerce Extended Category Archive Content
  *
  * @package     wpc-woocommerce-extended-category-archive-content
  * @author      Johnson, Mike J.
@@ -11,7 +11,7 @@
  * Plugin Name: WPComplete Woocommerce extended category archive content
  * Plugin URI:  https://github.com/JohnsonMikeJ/wpc-woocommerce-extended-category-archive-content/
  * Description: Adds content below the thumbnails on Woocommerce category archive pages.
- * Version:     0.1.3
+ * Version:     0.1.4
  * Author:      JohnsonMikej
  * Author URI:  https://profiles.wordpress.org/johnsonmikej
  * Text Domain: wpc-woocommerce-extended-category-archive-content
